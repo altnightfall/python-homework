@@ -7,6 +7,7 @@ config = {"REPORT_SIZE": 1000, "REPORT_DIR": "./reports", "LOG_DIR": "./log"}
 
 
 def main():
+    #test_precommit_on_new_machine
     pass
 
 
