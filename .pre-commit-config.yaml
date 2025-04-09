@@ -24,3 +24,17 @@ repos:
     hooks:
       - id: mypy
         additional_dependencies: [types-requests]
+
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
+        args:
+          [
+            "-rn",
+            "-sn",
+            "--max-line-length=120"
+          ]
