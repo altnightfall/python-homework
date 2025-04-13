@@ -1,0 +1,35 @@
+name: CI_check
+
+on:
+  push:
+
+jobs:
+  homework_1:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.12
+
+      - name: Run image # install uv
+        uses: astral-sh/setup-uv@v5.4.1
+
+      - name: Install dependencies # install all dependencies
+        run: |
+          cd homework_1
+          uv sync --group test
+
+      - name: Run static analyzis
+        run: |
+          cd homework_1
+          uv run pre-commit run --files *
+
+      - name: Run pytest
+        run: |
+          cd homework_1
+          uv run coverage run -m --source=src pytest tests
+          uv run coverage report
+  
