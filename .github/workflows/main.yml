@@ -6,7 +6,7 @@ on:
 jobs:
   homework_1:
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v2
 
@@ -35,7 +35,7 @@ jobs:
 
   homework_2:
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v2
 
@@ -56,3 +56,25 @@ jobs:
           cd homework_2
           uv run mypy basic.py intermediate.py
 
+  homework_4:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.12
+
+      - name: Run image # install uv
+        uses: astral-sh/setup-uv@v5.4.1
+
+      - name: Install dependencies # install all dependencies
+        run: |
+          cd homework_4
+          uv sync --group test
+
+      - name: Run tests
+        run: |
+          cd homework_4
+          uv run pytest test.py
