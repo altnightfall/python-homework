@@ -72,7 +72,7 @@ jobs:
       - name: Install dependencies # install all dependencies
         run: |
           cd homework_4
-          uv sync
+          uv sync --group test
 
       - name: Run mypy
         run: |
