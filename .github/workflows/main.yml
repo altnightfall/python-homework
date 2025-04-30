@@ -78,3 +78,27 @@ jobs:
         run: |
           cd homework_4
           uv run pytest test.py
+
+  homework_5:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.12
+
+      - name: Run image # install uv
+        uses: astral-sh/setup-uv@v5.4.1
+
+      - name: Install dependencies # install all dependencies
+        run: |
+          cd homework_5
+          uv sync
+
+      - name: Run tests
+        run: |
+          cd homework_5
+          uv run pytest tests
+
