@@ -102,3 +102,32 @@ jobs:
           cd homework_5
           uv run pytest tests
 
+  homework_6:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.12
+
+      - name: Run image # install uv
+        uses: astral-sh/setup-uv@v5.4.1
+
+      - name: Install dependencies # install all dependencies
+        run: |
+          cd homework_6
+          uv sync
+
+      - name: Run pylint
+        run: |
+          cd homework_6
+          uv run pylint -j 4 domain infrastructure tests main.py
+
+      - name: Run tests
+        run: |
+          cd homework_6
+          uv run pytest --cov=domain --cov=infrastructure --cov=tests tests
+
+
