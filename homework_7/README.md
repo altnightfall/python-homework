@@ -4,10 +4,10 @@
 # Запуск сервера
 ```
 uv sync
-uv run httpd.py -r .\src\ -w 4 -p 8080
+uv run httpd.py -r .\src\ -w 4 -p 80
 ```
 # Запуск тестов
 ```
 uv run .\httptest.py
-ab.exe -n 50000 -c 100 -r http://localhost:8080/
+ab.exe -n 50000 -c 100 -r http://localhost:80/
 ```
