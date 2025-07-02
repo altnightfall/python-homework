@@ -1,0 +1,1 @@
+from dmia.classifiers.logistic_regression import LogisticRegression
