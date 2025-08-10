@@ -1,0 +1,10 @@
+[project]
+name = "homework-13"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "protobuf==3.19.0",
+    "python-memcached>=1.62",
+]
