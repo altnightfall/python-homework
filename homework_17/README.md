@@ -14,7 +14,7 @@ run dry:
 ```
 run:
 ```
-.\memc_load.exe -pattern ".\data\*.tsv.gz" -dry true
+.\memc_load.exe -pattern ".\data\*.tsv.gz"
 ```
 help:
 ```
